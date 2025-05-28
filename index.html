@@ -145,10 +145,53 @@
         .hero {
             text-align: center;
             padding: 6rem 2rem;
-            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+            position: relative;
             color: white;
             margin-top: -80px;
             padding-top: 10rem;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 58, 138, 0.7);
+            z-index: -1;
+        }
+
+        /* 動画が読み込まれない場合のフォールバック */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+            z-index: -3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -599,9 +642,22 @@
     <main>
         <!-- ヒーローセクション -->
         <section id="home" class="hero">
-            <h1>合同会社MACHIKA</h1>
-            <p>言葉・技術・創造で、魅力ある成長を加速させる</p>
-            <a href="#contact" class="cta-button">お問い合わせ</a>
+            <!-- 動画背景 -->
+            <video class="hero-video" autoplay muted loop playsinline>
+                <!-- Pixabayの無料動画を使用（企業向けのテクノロジー動画） -->
+                <source src="https://cdn.pixabay.com/vimeo/383981385/business-42833.mp4?width=1920&hash=e6dbbba4d854e932b22b2e0c00e4cf5a9fb5efde" type="video/mp4">
+                <!-- フォールバック用のグラデーション背景 -->
+            </video>
+            
+            <!-- 動画の上に重ねるオーバーレイ -->
+            <div class="hero-overlay"></div>
+            
+            <!-- コンテンツ -->
+            <div class="hero-content">
+                <h1>合同会社MACHIKA</h1>
+                <p>革新的なソリューションで、未来を創造する</p>
+                <a href="#contact" class="cta-button">お問い合わせ</a>
+            </div>
         </section>
 
         <!-- 会社概要 -->
@@ -610,9 +666,9 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>私たちについて</h3>
-                    <p>合同会社MACHIKAは、合同会社MACHIKAは、「言葉・技術・創造で、魅力的な成長を実現する」というミッションのもと、お客様一人ひとりの想いに寄り添いながら、ビジネスの発展と課題解決を支援する会社です。</p>
-                    <p>私たちは、SNSを中心としたマーケティング支援や経営コンサルティング、Notionを活用した業務の効率化支援、さらには広告漫画などのクリエイティブ制作を通じて、戦略と表現の両面からお客様の価値を高めるお手伝いをしています。</p>
-                    <p>MACHIKAの強みは、「現状整理」と「想いの汲み取り」。目の前の課題だけでなく、その背景にあるお客様の想いやビジョンを丁寧に引き出し、共に考え、共に歩む伴走型のスタイルを大切にしています。</p>
+                    <p>合同会社MACHIKAは、革新的な技術とクリエイティブなアイデアを融合させ、お客様のビジネス成長をサポートする企業です。</p>
+                    <p>私たちは常に最新の技術トレンドを追求し、お客様のニーズに合わせたカスタマイズされたソリューションを提供しています。</p>
+                    <p>チーム一丸となって、質の高いサービスと継続的なサポートをお約束いたします。</p>
                 </div>
                 <div class="about-image">
                     <div class="placeholder-image">🏢</div>
@@ -626,23 +682,89 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">💻</div>
-                    <h3>経営・業務コンサルティング</h3>
-                    <p>個人事業主や中小企業を中心に、ビジネス課題の整理から施策立案・実行支援まで、経営の身近なパートナーとして伴走します。</p>
+                    <h3>システム開発</h3>
+                    <p>最新技術を活用したWebアプリケーション、モバイルアプリの開発を行います。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎨</div>
-                    <h3>マーケティング支援</h3>
-                    <p>InstagramやXなど、主要SNSを活用した発信戦略の立案・運用代行・改善提案を行い、ファンづくりと売上向上をサポートします。</p>
+                    <h3>デザイン</h3>
+                    <p>ユーザビリティを重視した美しく機能的なデザインを提供いたします。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📊</div>
-                    <h3>業務効率化支援</h3>
-                    <p>タスク管理や情報共有、社内ナレッジ整備など、Notionを使った業務の見える化・最適化を提案・設計・導入します。</p>
+                    <h3>コンサルティング</h3>
+                    <p>ビジネス課題の分析から解決策の提案まで、トータルサポートを行います。</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🚀</div>
-                    <h3>コンテンツ制作</h3>
-                    <p>商品・サービスの魅力を直感的に伝える広告漫画や、SNSコンテンツ、資料デザインなど、言葉とビジュアルの力を活かした制作を行います。</p>
+                    <h3>マーケティング</h3>
+                    <p>デジタルマーケティングを通じて、お客様のビジネス成長を促進します。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- お客様の声 -->
+        <section id="testimonials" class="section testimonials">
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        MACHIKAさんに依頼したシステム開発では、私たちの要望を丁寧にヒアリングしていただき、期待を上回る仕上がりでした。技術力の高さはもちろん、コミュニケーションも非常にスムーズで安心してお任せできました。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">田</div>
+                        <div class="author-info">
+                            <h4>田中様</h4>
+                            <p>製造業・IT部門責任者</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        デザインからマーケティングまで一貫してサポートしていただき、売上が30%向上しました。特にUI/UXの改善提案が素晴らしく、お客様からの反応も大変良好です。今後も継続してお願いしたいと思います。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">佐</div>
+                        <div class="author-info">
+                            <h4>佐藤様</h4>
+                            <p>EC事業・代表取締役</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p class="testimonial-text">
+                        コンサルティングサービスを利用させていただきました。業務プロセスの改善から IT導入まで、包括的なアドバイスをいただき、作業効率が大幅に向上しました。専門性の高さと親身な対応に感謝しています。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">山</div>
+                        <div class="author-info">
+                            <h4>山田様</h4>
+                            <p>サービス業・経営企画部</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -659,25 +781,29 @@
                         </tr>
                         <tr>
                             <th>設立</th>
-                            <td>2025年5月</td>
+                            <td>2024年</td>
                         </tr>
                         <tr>
                             <th>所在地</th>
-                            <td>愛知県名古屋市中村区名駅４丁目２４番５号</td>
+                            <td>東京都渋谷区</td>
                         </tr>
                         <tr>
                             <th>事業内容</th>
-                            <td>コンサルティング、システム開発、デザイン</td>
+                            <td>システム開発、デザイン、コンサルティング</td>
                         </tr>
                         <tr>
-                            <th>メール</th>
-                            <td>nearthemountains@gmail.com</td>
+                            <th>代表</th>
+                            <td>代表社員</td>
                         </tr>
                     </table>
                 </div>
                 <div class="about-text">
+                    <h3>企業理念</h3>
+                    <p>私たちは技術を通じて社会に貢献し、お客様と共に成長していくことを目指しています。</p>
+                    <h3>ビジョン</h3>
+                    <p>革新的なソリューションの提供を通じて、より良い未来を創造することです。</p>
                     <h3>ミッション</h3>
-                    <p>言葉・技術・創造で、魅力的な成長を実現する</p>
+                    <p>お客様のビジネス課題を解決し、持続可能な成長をサポートすることです。</p>
                 </div>
             </div>
         </section>
@@ -715,10 +841,10 @@
                             <label for="subject">お問い合わせ種別 <span class="required">*</span></label>
                             <select id="subject" name="subject" required>
                                 <option value="">選択してください</option>
+                                <option value="システム開発について">システム開発について</option>
+                                <option value="デザインについて">デザインについて</option>
                                 <option value="コンサルティングについて">コンサルティングについて</option>
                                 <option value="マーケティングについて">マーケティングについて</option>
-                                <option value="業務効率化について">業務効率化について</option>
-                                <option value="コンテンツ作成について">コンテンツ作成について</option>
                                 <option value="その他">その他</option>
                             </select>
                         </div>
@@ -736,12 +862,17 @@
                     <div class="contact-item">
                         <div class="icon">📧</div>
                         <h3>メール</h3>
-                        <p>nearthemountains@gmail.com</p>
+                        <p>yamarwanda@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <h3>電話</h3>
+                        <p>03-XXXX-XXXX</p>
                     </div>
                     <div class="contact-item">
                         <div class="icon">📍</div>
                         <h3>住所</h3>
-                        <p>愛知県名古屋市<br>中村区名駅４丁目２４番５号</p>
+                        <p>東京都渋谷区<br>詳細住所</p>
                     </div>
                 </div>
             </div>
@@ -750,10 +881,19 @@
 
     <!-- フッター -->
     <footer>
-        <p>&copy; 2025 合同会社MACHIKA. All rights reserved.</p>
+        <p>&copy; 2024 合同会社MACHIKA. All rights reserved.</p>
     </footer>
 
     <script>
+        // モバイルメニュー
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            mobileMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
         // スムーススクロール
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -796,7 +936,7 @@
         }, observerOptions);
 
         // アニメーション対象要素の観察開始
-        document.querySelectorAll('.service-card, .about-text, .info-table').forEach(el => {
+        document.querySelectorAll('.service-card, .about-text, .info-table, .testimonial-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease';
