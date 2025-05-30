@@ -4,7 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>合同会社MACHIKA</title>
-    <style>
+<style>
+/* プロセス図専用のCSS */
+.process-flow {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.process-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.process-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.process-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    background: white;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.process-step:nth-child(1) { animation-delay: 0.2s; }
+.process-step:nth-child(2) { animation-delay: 0.4s; }
+.process-step:nth-child(3) { animation-delay: 0.6s; }
+
+.process-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.process-step:nth-child(1) .step-icon {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.process-step:nth-child(2) .step-icon {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.process-step:nth-child(3) .step-icon {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+.step-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.step-description {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.process-arrow {
+    position: absolute;
+    top: 40px;
+    font-size: 2em;
+    color: #667eea;
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+.process-arrow:nth-child(2) {
+    left: calc(33.33% + 20px);
+}
+
+.process-arrow:nth-child(4) {
+    left: calc(66.66% + 20px);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .process-steps {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .process-arrow {
+        display: none;
+    }
+    
+    .process-step {
+        margin-bottom: 20px;
+    }
+    
+    .process-title {
+        font-size: 1.8em;
+    }
+}
         * {
             margin: 0;
             padding: 0;
