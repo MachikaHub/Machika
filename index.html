@@ -286,11 +286,14 @@
             background: #f8f9fa;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); /* ←幅を広げて2列狙い */
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center; /* 中央寄せ（必要に応じて） */
+}
+
         }
 
         .service-card {
@@ -676,33 +679,48 @@
             </div>
         </section>
 
-        <!-- サービス -->
-        <section id="services" class="section services">
-            <h2 class="section-title">事業内容</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>経営コンサルティング</h3>
-                    <p>個人事業主や中小企業を中心に、ビジネス課題の整理から施策立案・実行支援まで、経営の身近なパートナーとして伴走します。</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>マーケティング支援</h3>
-                    <p>InstagramやXなど、主要SNSを活用した発信戦略の立案・運用代行・改善提案を行い、ファンづくりと売上向上をサポートします。</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Notion導入・業務効率化支援</h3>
-                    <p>タスク管理や情報共有、社内ナレッジ整備など、Notionを使った業務の見える化・最適化を提案・設計・導入します。</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>広告漫画・コンテンツ制作</h3>
-                    <p>商品・サービスの魅力を直感的に伝える広告漫画や、SNSコンテンツ、資料デザインなど、言葉とビジュアルの力を活かした制作を行います。
+<section id="services" class="section services">
+  <h2 class="section-title">事業内容と料金</h2>
+  <div class="services-grid">
 
-</p>
-                </div>
-            </div>
+    <div class="service-card">
+      <div class="service-icon">💼</div>
+      <h3>SNS運用代行（X運用）</h3>
+      <p>
+        X（旧Twitter）を中心に、1日1投稿・リプライ・いいね・フォロー対応を含む運用代行を提供。発信内容の企画から投稿文作成、分析レポートまで対応可能です。
+      </p>
+      <p><strong>料金目安：</strong>月額39,800円（税込）〜</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🧠</div>
+      <h3>経営・業務改善コンサルティング</h3>
+      <p>
+        主に小規模企業・個人事業主を対象に、事業整理や課題抽出、戦略立案、販売促進支援などの経営改善を支援。定例ミーティングによる伴走型支援が中心です。
+      </p>
+      <p><strong>料金目安：</strong>月額33,000円〜 / 単発相談：11,000円（90分）</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">📚</div>
+      <h3>Notion導入支援・業務効率化</h3>
+      <p>
+        顧客管理・タスク管理・ナレッジ共有など、Notionを活用した業務改善ツールの設計・導入を支援。ヒアリング、テンプレ設計、導入レクチャーまで一括対応。
+      </p>
+      <p><strong>料金目安：</strong>スポット導入：110,000円〜 / 月額保守：33,000円〜</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>広告漫画・コンテンツ制作</h3>
+      <p>
+        商品・サービスを魅力的に伝える漫画やSNSコンテンツ、資料デザインなどを制作。企画・構成・作画・納品まで一貫して対応します。
+      </p>
+      <p><strong>料金目安：</strong>広告漫画：1ページ22,000円〜 / SNS画像：1枚3,000円〜</p>
+    </div>
+
+  </div>
+</section>
         </section>
 
         <!-- お客様の声 -->
